@@ -3,6 +3,8 @@ import { API_BASE_URL, ACCESS_TOKEN } from '../constants';
 const request = (options) => {
     const headers = new Headers({
         'Content-Type': 'application/json',
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Credentials": "true"
     })
     
     if(localStorage.getItem(ACCESS_TOKEN)) {
@@ -30,7 +32,7 @@ export function getCurrentUser() {
 
     return request({
         url: API_BASE_URL + "/user/me",
-        method: 'GET'
+        method: 'GET',
     });
 }
 
